@@ -1,0 +1,43 @@
+# --- 1. SYSTEM & IDE (Sampah Laptop) ---
+.DS_Store
+.vscode/
+.idea/
+
+# --- 2. GLOBAL PYTHON (Untuk folder .venv di luar) ---
+.venv/
+venv/
+*.pyc
+__pycache__/
+
+# --- 3. BACKEND SPECIFIC (Python) ---
+backend/.venv/
+backend/__pycache__/
+backend/*.pyc
+
+# --- 4. FRONTEND SPECIFIC (React/Node) ---
+# Mengabaikan folder modul yang berat
+frontend/node_modules/
+node_modules/
+# Mengabaikan hasil build
+frontend/dist/
+dist/
+
+# --- 5. DATA SECURITY (Sangat Penting!) ---
+# Abaikan file konfigurasi environment (berisi password/kunci)
+.env
+.env.local
+frontend/.env
+frontend/.env.local
+backend/.env
+
+# Abaikan data rahasia user (jika ada)
+*.csv
+*.xlsx
+*.json
+!package.json
+!tsconfig.json
+
+# --- 6. LOGS ---
+logs
+*.log
+npm-debug.log*

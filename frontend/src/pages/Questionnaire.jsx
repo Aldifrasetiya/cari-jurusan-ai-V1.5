@@ -51,7 +51,7 @@ const Questionnaire = () => {
         const scores = calculateScores();
 
         try {
-            const response = await axios.post('https://aldifrasetiya-api-cari-jurusan-v1-5.hf.space', scores);
+            const response = await axios.post('https://aldifrasetiya-api-cari-jurusan-v1-5.hf.space/predict', scores);
             setResult({ ...response.data, input_scores: scores });
             localStorage.setItem('minatResult', JSON.stringify({ ...response.data, input_scores: scores }));
         } catch (err) {
