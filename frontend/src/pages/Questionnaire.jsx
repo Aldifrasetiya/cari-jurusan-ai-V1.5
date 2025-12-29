@@ -51,7 +51,7 @@ const Questionnaire = () => {
         const scores = calculateScores();
 
         try {
-            const response = await axios.post('http://localhost:5000/predict', scores);
+            const response = await axios.post('https://aldifrasetiya-api-cari-jurusan-v1-5.hf.space', scores);
             setResult({ ...response.data, input_scores: scores });
             localStorage.setItem('minatResult', JSON.stringify({ ...response.data, input_scores: scores }));
         } catch (err) {
@@ -108,8 +108,8 @@ const Questionnaire = () => {
                                                         key={opt.value}
                                                         onClick={() => handleAnswerChange(key, opt.value)}
                                                         className={`px-3 py-2 rounded-lg text-sm transition-all border ${answers[key] === opt.value
-                                                                ? 'bg-indigo-600 border-indigo-500 text-white shadow-lg shadow-indigo-500/25'
-                                                                : 'bg-slate-900/50 border-slate-700 text-slate-400 hover:bg-slate-700 hover:text-slate-200'
+                                                            ? 'bg-indigo-600 border-indigo-500 text-white shadow-lg shadow-indigo-500/25'
+                                                            : 'bg-slate-900/50 border-slate-700 text-slate-400 hover:bg-slate-700 hover:text-slate-200'
                                                             }`}
                                                     >
                                                         {opt.label}
