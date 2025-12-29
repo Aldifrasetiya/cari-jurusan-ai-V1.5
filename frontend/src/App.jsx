@@ -1,12 +1,33 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import ReactGA from 'react-ga4';
 import Sidebar from './components/Sidebar';
 import Questionnaire from './pages/Questionnaire';
 import RaporAnalysis from './pages/RaporAnalysis';
 import { Menu, X } from 'lucide-react';
 
+const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_ID;
+
 function App() {
   const [activePage, setActivePage] = useState('questionnaire');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  useEffect(() => {
+    ReactGA.initialize(GA_MEASUREMENT_ID);
+    ReactGA.send({ 
+        hitType: "pageview", 
+        page: window.location.pathname, 
+        title: "Home Load" 
+    });
+  }, []);
+
+  useEffect(() => {
+    const pageName = activePage === 'questionnaire' ? '/test-minat' : '/analisis-rapor';
+    ReactGA.send({ 
+        hitType: "pageview", 
+        page: pageName,
+        title: activePage === 'questionnaire' ? 'Test Minat & Kemampuan' : 'Analisis Rapor'
+    });
+  }, [activePage]);
 
   return (
     <div className="min-h-screen bg-slate-900 text-slate-200 font-sans selection:bg-indigo-500 selection:text-white flex overflow-hidden">
