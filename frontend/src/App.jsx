@@ -5,7 +5,7 @@ import Questionnaire from './pages/Questionnaire';
 import RaporAnalysis from './pages/RaporAnalysis';
 import { Menu, X } from 'lucide-react';
 
-const GA_MEASUREMENT_ID = "G-55Q018SR5V";
+const GA_MEASUREMENT_ID = "G-BQ5NL6WF2P";
 
 function App() {
   const [activePage, setActivePage] = useState('questionnaire');
@@ -13,19 +13,19 @@ function App() {
 
   useEffect(() => {
     ReactGA.initialize(GA_MEASUREMENT_ID);
-    ReactGA.send({ 
-        hitType: "pageview", 
-        page: window.location.pathname, 
-        title: "Home Load" 
+    ReactGA.send({
+      hitType: "pageview",
+      page: window.location.pathname,
+      title: "Home Load"
     });
   }, []);
 
   useEffect(() => {
     const pageName = activePage === 'questionnaire' ? '/test-minat' : '/analisis-rapor';
-    ReactGA.send({ 
-        hitType: "pageview", 
-        page: pageName,
-        title: activePage === 'questionnaire' ? 'Test Minat & Kemampuan' : 'Analisis Rapor'
+    ReactGA.send({
+      hitType: "pageview",
+      page: pageName,
+      title: activePage === 'questionnaire' ? 'Test Minat & Kemampuan' : 'Analisis Rapor'
     });
   }, [activePage]);
 
@@ -41,13 +41,12 @@ function App() {
       )}
 
       {/* Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 transform transition-transform duration-300 ease-in-out md:relative md:translate-x-0 ${
-        isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-      }`}>
-        <Sidebar 
-            activePage={activePage} 
-            setActivePage={setActivePage} 
-            onClose={() => setIsSidebarOpen(false)}
+      <div className={`fixed inset-y-0 left-0 z-50 transform transition-transform duration-300 ease-in-out md:relative md:translate-x-0 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+        }`}>
+        <Sidebar
+          activePage={activePage}
+          setActivePage={setActivePage}
+          onClose={() => setIsSidebarOpen(false)}
         />
       </div>
 
