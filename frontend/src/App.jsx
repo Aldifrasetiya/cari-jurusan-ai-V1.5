@@ -5,7 +5,7 @@ import Questionnaire from './pages/Questionnaire';
 import RaporAnalysis from './pages/RaporAnalysis';
 import { Menu, X } from 'lucide-react';
 
-const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_ID;
+const GA_MEASUREMENT_ID = "G-55Q018SR5V";
 
 function App() {
   const [activePage, setActivePage] = useState('questionnaire');
